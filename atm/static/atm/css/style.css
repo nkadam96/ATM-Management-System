@@ -1,0 +1,55 @@
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .login-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .keypad {
+        grid-template-columns: repeat(3, 60px);
+        gap: 10px;
+    }
+
+    .keypad button {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .action-buttons button {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+}
+.error-card {
+    border-left: 6px solid #ff4d4d;
+    animation: shake 0.3s ease-in-out 2;
+}
+
+.error-title {
+    color: #ff4d4d;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: #ffdddd;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}

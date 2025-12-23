@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Statement</title>
+    <link rel="stylesheet" href="{% static 'atm/css/mini_statement.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+    <h2>Mini Statement</h2>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Balance</th>
+        </tr>
+<div class="total-balance">
+    <strong>Total Balance:</strong> ₹ {{ user.balance }}
+</div>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.date }}</td>
+            <td>{{ t.transaction_type }}</td>
+            <td>{{ t.amount }}</td>
+            <td>{{ t.balance_after }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No transactions found</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/dashboard/" class="btn back">Go Back</a>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Login</title>
+    <link rel="stylesheet" href="{% static 'atm/css/login.css' %}">
+</head>
+<body>
+
+<div class="atm-screen">
+    <h2>ATM Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Card Number</label>
+        <input type="text" name="card" placeholder="Enter Card Number" required>
+
+        <label>PIN</label>
+        <input type="password" name="pin" placeholder="•••••" required>
+
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

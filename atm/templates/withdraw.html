@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Withdraw</title>
+    <link rel="stylesheet" href="{% static 'atm/css/withdraw.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+
+    <h2>Withdraw Cash</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Enter Amount</label>
+        <input type="number" name="amount" min="1" required>
+
+        <button type="submit" class="btn">Withdraw</button>
+
+        <a href="/dashboard/" class="btn back">Go Back</a>
+    </form>
+
+</div>
+
+</body>
+</html>

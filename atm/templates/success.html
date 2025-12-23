@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Successful</title>
+    <link rel="stylesheet" href="{% static 'atm/css/success.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+
+    <img src="{% static 'atm/images/success.png' %}" class="icon">
+
+    <h2>Transaction Successful</h2>
+
+    <p>Your transaction has been completed successfully.</p>
+
+    {% if amount %}
+    <div class="amount-box">
+        Amount: <strong>₹{{ amount }}</strong>
+    </div>
+    {% endif %}
+
+    <a href="/dashboard/" class="btn">Go to Dashboard</a>
+
+</div>
+
+</body>
+</html>

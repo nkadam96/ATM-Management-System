@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Dashboard</title>
+    <link rel="stylesheet" href="{% static 'atm/css/dashboard.css' %}">
+</head>
+<script>
+let balanceVisible = false;
+
+function toggleBalance() {
+    if (!balanceVisible) {
+        const pin = prompt("Enter your ATM PIN");
+
+        if (pin === null) return;
+
+        fetch("/check-pin/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: JSON.stringify({ pin: pin })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("balance").style.display = "inline";
+                document.getElementById("hidden-text").style.display = "none";
+                document.getElementById("eye-icon").innerText = "🙈";
+                balanceVisible = true;
+            } else {
+                alert("❌ Wrong PIN");
+            }
+        });
+    } else {
+        document.getElementById("balance").style.display = "none";
+        document.getElementById("hidden-text").style.display = "inline";
+        document.getElementById("eye-icon").innerText = "👁️";
+        balanceVisible = false;
+    }
+}
+</script>
+
+
+<body>
+    <div class="balance-box">
+    <span class="balance-label">Balance:</span>
+
+    <span id="balance" class="balance-amount" style="display:none;">
+        ₹ {{ user.balance }}
+    </span>
+
+    <span id="hidden-text" class="balance-hidden">****</span>
+
+    <button class="eye-btn" onclick="toggleBalance()">
+        <span id="eye-icon">👁️</span>
+    </button>
+</div>
+
+<div class="atm-screen">
+
+    <h2>Welcome, {{ user.name }}</h2>
+    <h3>
+    Balance:
+    <span id="balance" style="display: none;">
+        ₹ {{ user.balance }}
+    </span>
+    <span id="hidden-text">****</span>
+</h3>
+
+<button class="btn" onclick="toggleBalance()">
+    👁️ Show / Hide Balance
+</button>
+
+    <div class="btn-container">
+
+        <a href="/deposit/" class="btn">Deposit</a>
+        <a href="/withdraw/" class="btn">Withdraw</a>
+        <a href="/transfer/" class="btn">Transfer</a>
+        <a href="/mini-statement/" class="btn">Mini Statement</a>
+        <a href="/change-pin/" class="btn">Change PIN</a>
+        <a href="/logout/" class="btn logout">Logout</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

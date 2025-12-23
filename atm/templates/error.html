@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - ATM</title>
+    <link rel="stylesheet" href="{% static 'atm/css/style.css' %}">
+</head>
+<body class="atm-bg">
+
+<div class="container">
+    <div class="atm-card error-card">
+        <h2 class="title error-title">⚠️ Transaction Failed</h2>
+
+        <p class="error-message">
+            {{ message }}  
+            <!-- Django madhun error message pass kara -->
+        </p>
+
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">⬅ Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

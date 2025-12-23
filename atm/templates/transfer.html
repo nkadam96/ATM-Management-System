@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transfer Money</title>
+    <link rel="stylesheet" href="{% static 'atm/css/transfer.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+
+    <h2>Transfer Money</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Receiver Card Number:</label>
+        <input type="text" name="receiver_card" required>
+
+        <label>Amount:</label>
+        <input type="number" name="amount" required>
+
+        <button type="submit" class="btn">Transfer</button>
+    </form>
+
+    <a href="/dashboard/" class="btn back">Go Back</a>
+
+</div>
+
+</body>
+</html>

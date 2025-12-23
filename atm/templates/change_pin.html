@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change PIN</title>
+    <link rel="stylesheet" href="{% static 'atm/css/change_pin.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+
+    <h2>Change PIN</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Current PIN</label>
+        <input type="password" name="current_pin" maxlength="4" required>
+
+        <label>New PIN</label>
+        <input type="password" name="new_pin" maxlength="4" required>
+
+        <label>Confirm New PIN</label>
+        <input type="password" name="confirm_pin" maxlength="4" required>
+
+        <button type="submit" class="btn">Change PIN</button>
+
+        <a href="/dashboard/" class="btn back">Go Back</a>
+    </form>
+
+</div>
+
+</body>
+</html>

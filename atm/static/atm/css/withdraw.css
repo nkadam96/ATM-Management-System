@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #002b36;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.atm-screen {
+    width: 450px;
+    padding: 25px;
+    background: #e8f7ff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #004b63;
+}
+
+label {
+    font-size: 18px;
+    color: #004b63;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 12px 0 20px 0;
+    border-radius: 10px;
+    border: 2px solid #00647a;
+    font-size: 18px;
+}
+
+.btn {
+    display: block;
+    width: 92%;
+    margin: 12px auto;
+    padding: 12px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 #990000;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #b30000;
+    transform: scale(1.03);
+}
+
+.back {
+    background: #005f73;
+    box-shadow: 0 4px 0 #004a59;
+}
+
+.back:hover {
+    background: #004f60;
+}

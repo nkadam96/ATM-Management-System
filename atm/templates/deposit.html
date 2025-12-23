@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deposit</title>
+    <link rel="stylesheet" href="{% static 'atm/css/deposit.css' %}">
+</head>
+
+<body>
+
+<div class="atm-screen">
+
+    <h2>Deposit Cash</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Enter Amount</label>
+        <input type="number" name="amount"  required>
+
+        <button type="submit" class="btn">Deposit</button>
+
+        <a href="/dashboard/" class="btn back">Go Back</a>
+    </form>
+
+</div>
+
+</body>
+</html>
